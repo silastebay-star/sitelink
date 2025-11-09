@@ -1,5 +1,5 @@
 import React from 'react';
-import { Separator } from '../../components/ui/separator';
+import { Separator } from '../../../components/ui/separator';
 
 interface SettingsLayoutProps {
   children: React.ReactNode;

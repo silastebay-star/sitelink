@@ -18,7 +18,7 @@ import { toast } from 'sonner';
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { updateProfile } from '@/app/actions/profile';
-import { revalidatePath } from 'next/cache';
+
 
 const profileFormSchema = z.object({
   full_name: z

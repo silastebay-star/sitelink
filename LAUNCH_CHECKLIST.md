@@ -155,10 +155,10 @@
 
 ## Emergency Contacts
 
-**Technical Lead:** [Name] - [Phone] - [Email]
-**DevOps Lead:** [Name] - [Phone] - [Email]
-**Security Lead:** [Name] - [Phone] - [Email]
-**Product Owner:** [Name] - [Phone] - [Email]
+**Technical Lead:**
+**DevOps Lead:**
+**Security Lead:**
+**Product Owner:**
 
 ## Rollback Plan
 

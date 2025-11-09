@@ -21,13 +21,13 @@ export async function POST(request: NextRequest) {
     )
 
     if (error) {
-      console.error("[v0] Failed to save subscription:", error)
+      console.error("Failed to save subscription:", error)
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
     return NextResponse.json({ success: true })
   } catch (error) {
-    console.error("[v0] Subscribe endpoint error:", error)
+    console.error("Subscribe endpoint error:", error)
     return NextResponse.json({ error: "Failed to subscribe" }, { status: 500 })
   }
 }

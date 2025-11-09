@@ -4,7 +4,7 @@ export class PushNotificationManager {
 
   async initialize() {
     if (!("serviceWorker" in navigator) || !("PushManager" in window)) {
-      console.warn("[v0] Push notifications not supported")
+      console.warn("Push notifications not supported")
       return false
     }
 
@@ -12,7 +12,7 @@ export class PushNotificationManager {
       this.registration = await navigator.serviceWorker.ready
       return true
     } catch (error) {
-      console.error("[v0] Service worker not ready:", error)
+      console.error("Service worker not ready:", error)
       return false
     }
   }
@@ -31,7 +31,7 @@ export class PushNotificationManager {
     try {
       const permission = await this.requestPermission()
       if (permission !== "granted") {
-        console.warn("[v0] Push permission denied")
+        console.warn("Push permission denied")
         return null
       }
 
@@ -43,7 +43,7 @@ export class PushNotificationManager {
         const vapidPublicKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY
 
         if (!vapidPublicKey) {
-          console.warn("[v0] VAPID public key not configured")
+          console.warn("VAPID public key not configured")
           return null
         }
 
@@ -58,7 +58,7 @@ export class PushNotificationManager {
 
       return subscription
     } catch (error) {
-      console.error("[v0] Push subscription failed:", error)
+      console.error("Push subscription failed:", error)
       return null
     }
   }

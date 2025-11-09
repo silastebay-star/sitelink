@@ -101,7 +101,7 @@ export async function getSignedUrl(bucket: string, path: string, expiresIn = 360
   const { data, error } = await supabase.storage.from(bucket).createSignedUrl(path, expiresIn)
 
   if (error) {
-    console.error("[v0] Failed to get signed URL:", error)
+    console.error("Failed to get signed URL:", error)
     return null
   }
 

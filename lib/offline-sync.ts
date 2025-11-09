@@ -8,25 +8,25 @@ export class OfflineSync {
 
   async queueAction(action: Omit<OfflineTask, "id">) {
     await offlineStorage.addPendingSync(action)
-    console.log("[v0] Queued offline action:", action.entity, action.action)
+    console.log("Queued offline action:", action.entity, action.action)
   }
 
   async processPendingSync() {
     if (this.isProcessing) return
 
     this.isProcessing = true
-    console.log("[v0] Processing pending sync...")
+    console.log("Processing pending sync...")
 
     const pending = await offlineStorage.getPendingSync()
-    console.log("[v0] Found", pending.length, "pending items")
+    console.log("Found", pending.length, "pending items")
 
     for (const task of pending) {
       try {
         await this.executeTaskWithRetry(task)
         await offlineStorage.clearPendingSync(task.id)
-        console.log("[v0] Synced:", task.entity, task.id)
+        console.log("Synced:", task.entity, task.id)
       } catch (error) {
-        console.error("[v0] Sync failed for", task.id, error)
+        console.error("Sync failed for", task.id, error)
         // Leave in queue for next sync attempt
       }
     }
@@ -93,7 +93,7 @@ export class OfflineSync {
   }
 
   private async handleConflict(task: OfflineTask, serverData: any) {
-    console.warn("[v0] Conflict detected for", task.entity, task.data.id)
+    console.warn("Conflict detected for", task.entity, task.data.id)
 
     // For critical fields, store conflict for manual resolution
     // For non-critical fields, use last-writer-wins
@@ -109,7 +109,7 @@ export class OfflineSync {
       })
     } else {
       // Last-writer-wins for non-critical data
-      console.log("[v0] Applying last-writer-wins strategy")
+      console.log("Applying last-writer-wins strategy")
       const supabase = createClient()
       await supabase.from(task.entity).update(task.data).eq("id", task.data.id)
     }
@@ -151,7 +151,7 @@ export const offlineSync = new OfflineSync()
 // Auto-sync when online
 if (typeof window !== "undefined") {
   window.addEventListener("online", () => {
-    console.log("[v0] Connection restored, syncing...")
+    console.log("Connection restored, syncing...")
     offlineSync.processPendingSync()
   })
 }

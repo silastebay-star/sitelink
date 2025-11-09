@@ -49,7 +49,7 @@ A comprehensive Progressive Web Application (PWA) for construction site manageme
    \`\`\`
 
 3. Set up environment variables:
-   - The Supabase integration is already connected in this v0 workspace
+   - The Supabase integration is already connected in this workspace
    - For local development, add `NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL`
 
 4. Run the database scripts in order from the `scripts/` folder:

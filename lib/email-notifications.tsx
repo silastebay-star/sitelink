@@ -24,7 +24,7 @@ export class EmailNotificationService {
 
       return response.ok
     } catch (error) {
-      console.error("[v0] Email send failed:", error)
+      console.error("Email send failed:", error)
       return false
     }
   }

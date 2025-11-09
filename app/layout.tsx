@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     statusBarStyle: "default",
     title: "Site Connect",
   },
-    generator: 'v0.app'
+
 }
 
 export const viewport: Viewport = {
@@ -45,10 +45,10 @@ export default function RootLayout({
                 window.addEventListener('load', function() {
                   navigator.serviceWorker.register('/sw.js')
                     .then(function(registration) {
-                      console.log('[v0] SW registered:', registration.scope);
+                      console.log('SW registered:', registration.scope);
                     })
                     .catch(function(error) {
-                      console.log('[v0] SW registration failed:', error);
+                      console.log('SW registration failed:', error);
                     });
                 });
               }

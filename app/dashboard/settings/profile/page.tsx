@@ -1,4 +1,4 @@
-import { Separator } from '../../../../components/ui/separator';
+import { Separator } from '../../../components/ui/separator';
 import ProfileForm from '@/components/profile-form'; // We will create this component next
 
 export default function ProfileSettingsPage() {
